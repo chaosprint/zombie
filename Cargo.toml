@@ -1,0 +1,23 @@
+[package]
+name = "zombie"
+
+edition = "2021"
+publish = false
+version = "0.0.1"
+
+[dependencies]
+ambient_api = { git = "https://github.com/AmbientRun/Ambient.git", branch = "main" }
+
+[[bin]]
+name = "client_zombie"
+path = "src/client.rs"
+required-features = ["client"]
+
+[[bin]]
+name = "server_zombie"
+path = "src/server.rs"
+required-features = ["server"]
+
+[features]
+client = ["ambient_api/client"]
+server = ["ambient_api/server"]
